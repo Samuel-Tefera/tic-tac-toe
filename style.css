@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.game-container{
+    width: 25rem;
+    height: 25rem;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: rgb(255, 255, 255, 0.25);
+    border: 1px solid #999;
+    box-shadow: 0 2px 8px  rgb(0, 0, 0, 0.25);
+}
+
+.value-box{
+    text-align: center;
+    border: 0.5px solid #eee;
+    cursor: pointer;
+}
+
+.value{
+    margin: 0;
+    font-size: 6rem;
+}
+
+.x-value{
+    color: red;
+}
+
+.o-value{
+    color: green;
+}

@@ -5,18 +5,67 @@ body{
     font-family: sans-serif;
 }
 
-.game-container{
+main{
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem;
+}
+
+.player-board{
+    width: 15rem;
+    height: 15rem;
+    padding-top: 4rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.player-board:nth-child(2){
+    order: 2;
+}
+
+.player{
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+.player-x span{
+    color: red;
+}
+
+.player-o span{
+    color: green;
+}
+
+.score{
+    margin-left: 2.6rem;
+    font-size: 1.2rem;
+}
+
+.turn-msg{
+    text-align: center;
+}
+
+.turn-x span{
+    color: red;
+}
+
+.turn-o span{
+    color: green;
+}
+
+.game-board{
     width: 25rem;
     height: 25rem;
-    margin: 2rem auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     background-color: rgb(255, 255, 255, 0.25);
-    border: 1px solid #999;
     box-shadow: 0 2px 8px  rgb(0, 0, 0, 0.25);
+    row-gap: 2px;
+    column-gap: 2px;
 }
 
 .value-box{
+    box-shadow: 0 2px 8px  rgb(0, 0, 0, 0.25);
     text-align: center;
     border: 0.5px solid #eee;
     cursor: pointer;
@@ -25,6 +74,10 @@ body{
 .value{
     margin: 0;
     font-size: 6rem;
+}
+
+.hidden{
+    opacity: 0;
 }
 
 .x-value{

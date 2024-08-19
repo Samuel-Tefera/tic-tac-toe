@@ -23,10 +23,16 @@
             </div>
         </div>
         <div class="game-conatiner">
-            <p class="turn-msg turn-x"><span>X</span> turn</p>
+            <div class="turn-box">
+                <p class="turn-msg">Turn for</p>
+                <div class="turn-xo">
+                    <p class="dark-bg turn turn-x">X</p>
+                    <p class="turn turn-o">O</p>
+                </div>
+            </div>
             <div class="game-board">
                 <div class="value-box">
-                    <p class="value">x</p>
+                    <p class="value">X</p>
                 </div>
                 <div class="value-box">
                     <p class="value">o</p>
@@ -37,24 +43,28 @@
                 <div class="value-box">
                     <p class="value">o</p>
                 </div>
-            <div class="value-box">
-                <p class="value">x</p>
-            </div>
-            <div class="value-box">
-                <p class="value">o</p>
-            </div>
-            <div class="value-box">
-                <p class="value">o</p>
-            </div>
-            <div class="value-box">
-                <p class="value">x</p>
-            </div>
-            <div class="value-box">
-                <p class="value">o</p>
-            </div>
+                <div class="value-box">
+                    <p class="value">x</p>
+                </div>
+                <div class="value-box">
+                    <p class="value">o</p>
+                </div>
+                <div class="value-box">
+                    <p class="value">o</p>
+                </div>
+                <div class="value-box">
+                    <p class="value">x</p>
+                </div>
+                <div class="value-box">
+                    <p class="value">o</p>
+                </div>
         </div>
         </div>
     </main>
+    <div class="result-board">
+        <p>Draw 🤝</p>
+        <button title="btn play-again-btn" class="btn">Play again</button>
+    </div>
     <script src="script.js"></script>
 </body>
 

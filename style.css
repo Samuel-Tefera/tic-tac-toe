@@ -3,20 +3,23 @@ body{
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    background-color: #1b183e;
+    color: #dedcf5;
 }
 
 main{
     display: flex;
     justify-content: space-between;
-    margin: 2rem;
+    margin: 0 2rem;
 }
 
 .player-board{
     width: 15rem;
-    height: 15rem;
+    height: 8rem;
     padding-top: 4rem;
     text-align: center;
-    margin-top: 2rem;
+    border-bottom: 1px solid #8c84dd;
+    margin-top: 6rem;
 }
 
 .player-board:nth-child(2){
@@ -25,15 +28,6 @@ main{
 
 .player{
     font-size: 2rem;
-    margin-bottom: 0;
-}
-
-.player-x span{
-    color: red;
-}
-
-.player-o span{
-    color: green;
 }
 
 .score{
@@ -41,16 +35,25 @@ main{
     font-size: 1.2rem;
 }
 
+.turn-box{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
 .turn-msg{
     text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 0;
 }
 
-.turn-x span{
-    color: red;
+.turn-xo{
+    display: flex;
+    justify-content: center;
 }
 
-.turn-o span{
-    color: green;
+.turn{
+    border: 1px solid #8c84dd;
+    padding: 0.5rem 2rem;
 }
 
 .game-board{
@@ -58,32 +61,63 @@ main{
     height: 25rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background-color: rgb(255, 255, 255, 0.25);
-    box-shadow: 0 2px 8px  rgb(0, 0, 0, 0.25);
+    box-shadow: 0 0 4px 4px  #8c84dd;
     row-gap: 2px;
     column-gap: 2px;
 }
 
 .value-box{
-    box-shadow: 0 2px 8px  rgb(0, 0, 0, 0.25);
+    box-shadow: 0 0  4px 4px  #8c84dd;
     text-align: center;
-    border: 0.5px solid #eee;
     cursor: pointer;
 }
 
 .value{
     margin: 0;
     font-size: 6rem;
+    margin-top: 0.8rem;
+}
+
+.result-board{
+    width: 12rem;
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.result-board p{
+    margin-bottom: 1rem;
+}
+
+.btn{
+    color: #8c84dd;
+    font-size: 1.2rem;
+    background-color: #1b183e;
+    border: 1px solid #8c84dd;
+    padding: 0.5rem 2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition-delay: 0.15s;
+}
+
+.btn:hover{
+    color: #1b183e;
+    background-color: #8c84dd;
+}
+
+.disable{
+    display: none;
 }
 
 .hidden{
     opacity: 0;
 }
 
-.x-value{
-    color: red;
+.dark-bg{
+    background-color: #8c84dd;
+    color: #1b183e;
 }
 
-.o-value{
-    color: green;
+.hold__value-box{
+    cursor: default;
 }

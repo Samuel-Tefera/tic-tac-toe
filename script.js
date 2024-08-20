@@ -1,19 +1,24 @@
 'use strict';
 
-const valueBoxs = document.querySelectorAll( '.value-box' )
-const values = document.querySelectorAll( '.value' )
-const turnBox = document.querySelector('.turn-box')
-const turnX = document.querySelector('.turn-x')
+const valueBoxs = document.querySelectorAll( '.value-box' );
+const values = document.querySelectorAll( '.value' );
+const turnBox = document.querySelector( '.turn-box' );
+const turnX = document.querySelector( '.turn-x' );
 const turnO = document.querySelector( '.turn-o' )
-const resultBoard = document.querySelector( '.result-board' )
-const resultMsg = resultBoard.querySelector( 'p' )
-const scoreX = document.querySelector('.score-x')
-const scoreO = document.querySelector( '.score-o' )
+const resultBoard = document.querySelector( '.result-board' );
+const resultMsg = resultBoard.querySelector( 'p' );
+const scoreXEL = document.querySelector( '.score-x' ).querySelector('span');
+const scoreOEl = document.querySelector( '.score-o' ).querySelector('span');
+
+let scoreX = 0;
+let scoreO = 0;
 
 let x_turn = true;
 let chance = 9;
 
 const gameInit = ( values ) => {
+    scoreXEL.textContent = scoreX;
+    scoreOEl.textContent = scoreO;
     for ( let i = 0; i < values.length; i++ ){
         values[i].classList.add('hidden')
     }
@@ -136,12 +141,14 @@ const handleResultMsg = () => {
         turnBox.classList.add( 'hidden' );
         resultBoard.classList.remove( 'disable' );
         resultMsg.textContent = 'Player X Win 🏆';
+        scoreX++;
         gameEnd( values );
     }
     else if ( result === 'o' ) {
         turnBox.classList.add( 'hidden' );
         resultBoard.classList.remove( 'disable' );
         resultMsg.textContent = 'Player O Win 🏆';
+        scoreO++;
         gameEnd( values );
     }
     else if ( result === 'draw' ) {

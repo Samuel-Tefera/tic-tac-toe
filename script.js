@@ -16,7 +16,7 @@ let scoreO = 0;
 let x_turn = true;
 let chance = 9;
 
-const gameInit = ( values ) => {
+const gameBoardInit = ( values ) => {
     scoreXEL.textContent = scoreX;
     scoreOEl.textContent = scoreO;
     for ( let i = 0; i < values.length; i++ ){
@@ -31,7 +31,7 @@ const gameEnd = ( values ) => {
 }
 
 // Intialize a game => make a gameboard empty
-gameInit( values )
+gameBoardInit( values )
 
 // Manage which player turn
 const handleTurn = () => {
@@ -133,30 +133,39 @@ const getWinner = ( values, chance ) => {
     }
 }
 
+const manageBoard = ( turnBox, resultBoard ) => {
+    turnBox.classList.add( 'hidden' );
+    resultBoard.classList.remove( 'disable' );
+}
+
 // Dispaly result message
 const handleResultMsg = () => {
-    chance--;
+    chance--; // Decrease player chance by 1
     const result = getWinner(values, chance)
     if ( result === 'x' ) {
-        turnBox.classList.add( 'hidden' );
-        resultBoard.classList.remove( 'disable' );
+        manageBoard( turnBox, resultBoard );
         resultMsg.textContent = 'Player X Win 🏆';
         scoreX++;
         gameEnd( values );
     }
     else if ( result === 'o' ) {
-        turnBox.classList.add( 'hidden' );
-        resultBoard.classList.remove( 'disable' );
+        manageBoard( turnBox, resultBoard );
         resultMsg.textContent = 'Player O Win 🏆';
         scoreO++;
         gameEnd( values );
     }
     else if ( result === 'draw' ) {
-        turnBox.classList.add( 'hidden' );
-        resultBoard.classList.remove( 'disable' );
+        manageBoard( turnBox, resultBoard );
         resultMsg.textContent = 'Draw 🤝';
         gameEnd( values );
     }
+}
+
+const manageGame = (valueBox, value) => {
+    valueBox.classList.add( 'hold__value-box' )
+    value.classList.remove( 'hidden' );
+    handleTurn()
+    handleResultMsg()
 }
 
 valueBoxs.forEach( valueBox => {
@@ -165,19 +174,13 @@ valueBoxs.forEach( valueBox => {
         if ( value.classList.contains( 'hidden' ) &&
              !value.classList.contains('hold__value-box') ) {
             if ( x_turn ) {
-                valueBox.classList.add('hold__value-box')
                 value.textContent = 'X';
-                value.classList.remove( 'hidden' );
-                handleTurn()
-                handleResultMsg()
+                manageGame(valueBox, value)
                 x_turn = false;
             }
             else {
-                valueBox.classList.add('hold__value-box')
                 value.textContent = 'O';
-                value.classList.remove( 'hidden' );
-                handleTurn()
-                handleResultMsg()
+                manageGame(valueBox, value)
                 x_turn = true;
             }
         }

@@ -42,16 +42,16 @@ To run this project locally, follow these steps:
 
 ## Screenshots
 
-![Screenshot 1](screenshots/Screenshot (1).png)
+![Screenshot 1](screenshots/Screenshot1.png)
 *Game Board*
 
-![Screenshot 2](screenshots/Screenshot (2).png)
+![Screenshot 2](screenshots/Screenshot2.png)
 *Player X Wins!*
 
-![Screenshot 3](screenshots/Screenshot (3).png)
+![Screenshot 3](screenshots/Screenshot3.png)
 *player O Wins!*
 
-![Screenshot 4](screenshots/Screenshot (4).png)
+![Screenshot 4](screenshots/Screenshot4.png)
 *Draw*
 
 ## Usage

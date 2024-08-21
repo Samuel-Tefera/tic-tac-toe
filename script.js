@@ -9,7 +9,6 @@ const resultBoard = document.querySelector( '.result-board' );
 const resultMsg = resultBoard.querySelector( 'p' );
 const scoreXEL = document.querySelector( '.score-x' ).querySelector('span');
 const scoreOEl = document.querySelector( '.score-o' ).querySelector( 'span' );
-const playAgainBtn = document.querySelector('.btn')
 
 let scoreX = 0;
 let scoreO = 0;
@@ -51,87 +50,50 @@ const changeBoardBG = ( values, i, j, k ) => {
     values[k].parentElement.classList.add('dark-bg')
 }
 
+// check if a game got a winner
+const isThereWinner = (values, i, k, j ) => {
+    if ( ( values[ i ].textContent === values[ j ].textContent )
+        && values[ i ].textContent === values[ k ].textContent ) {
+        changeBoardBG( values, i, j, k );
+        return true;
+    }
+}
+
+// select winner from X and O
+const selectWinner = ( values, i ) => {
+    if ( values[ i ].textContent === 'X' ) {
+        return 'x';
+    }
+    else {
+        return 'o';
+    }
+}
+
 // Find if ther a game winner
 const getWinner = ( values, chance ) => {
-    if ( ( values[ 0 ].textContent === values[ 1 ].textContent )
-        && values[ 1 ].textContent === values[ 2 ].textContent ) {
-        changeBoardBG(values, 0, 1, 2)
-        if ( values[ 0 ].textContent === 'X' ) {
-            return 'x';
-        }
-        else {
-            return 'o'
-        }
+    if ( isThereWinner( values, 0, 1, 2 ) ) {
+        return selectWinner(values, 0)
     }
-    else if ( ( values[ 3 ].textContent === values[ 4 ].textContent )
-        && values[ 3 ].textContent === values[ 5 ].textContent ) {
-        changeBoardBG(values, 3, 4, 5)
-        if ( values[ 3 ].textContent === 'X' ) {
-            return 'x';
-        }
-        else {
-            return 'o'
-        }
+    else if ( isThereWinner(values, 3, 4, 5) ) {
+        return selectWinner(values, 3)
     }
-    else if ( ( values[ 6 ].textContent === values[ 7 ].textContent )
-        && values[ 6 ].textContent === values[ 8 ].textContent ) {
-        changeBoardBG(values, 6, 7, 8)
-        if ( values[ 6 ].textContent === 'X' ) {
-            return 'x';
-        }
-        else {
-            return 'o'
-        }
+    else if ( isThereWinner(values, 6, 7, 8)) {
+        return selectWinner(values, 6)
     }
-    else if ( ( values[ 0 ].textContent === values[ 3 ].textContent )
-        && values[ 0 ].textContent === values[ 6 ].textContent ) {
-        changeBoardBG(values, 0, 3, 6)
-        if ( values[ 0 ].textContent === 'X' ) {
-            return 'x';
-        }
-        else {
-            return 'o'
-        }
+    else if ( isThereWinner(values, 0, 3, 6)) {
+        return selectWinner(values, 0)
     }
-    else if ( ( values[ 1 ].textContent === values[ 4 ].textContent )
-        && values[ 1 ].textContent === values[ 7 ].textContent ) {
-        changeBoardBG(values, 1, 4, 7)
-        if ( values[ 1 ].textContent === 'X' ) {
-            return 'x';
-        }
-        else {
-            return 'o'
-        }
+    else if (isThereWinner(values, 1, 4, 7) ) {
+        return selectWinner(values, 1)
     }
-    else if ( ( values[ 2 ].textContent === values[ 5 ].textContent )
-        && values[ 2 ].textContent === values[ 8 ].textContent ) {
-        changeBoardBG(values, 2, 5, 8)
-        if ( values[ 2 ].textContent === 'X' ) {
-            return 'x';
-        }
-        else {
-            return 'o'
-        }
+    else if ( isThereWinner(values, 2, 5, 8) ) {
+        return selectWinner(values, 2)
     }
-    else if ( ( values[ 0 ].textContent === values[ 4 ].textContent )
-        && values[ 0 ].textContent === values[ 8 ].textContent ) {
-        changeBoardBG(values, 0, 4, 8)
-        if ( values[ 0 ].textContent === 'X' ) {
-            return 'x';
-        }
-        else {
-            return 'o'
-        }
+    else if ( isThereWinner(values, 0, 4, 8)) {
+        return selectWinner(values, 0)
     }
-    else if ( ( values[ 2 ].textContent === values[ 4 ].textContent )
-        && values[ 2 ].textContent === values[ 6 ].textContent ) {
-        changeBoardBG(values, 2, 4, 6)
-        if ( values[ 2 ].textContent === 'X' ) {
-            return 'x';
-        }
-        else {
-            return 'o'
-        }
+    else if ( isThereWinner(values, 2, 4, 6) ) {
+        return selectWinner(values, 2)
     }
     else if ( chance === 0 ) {
         return 'draw'
@@ -199,7 +161,8 @@ const startGame = () => {
 // Start a new game
 startGame()
 
+// start a game after updating score
 playAgainBtn.addEventListener( 'click', () => {
     gameBoardInit( values );
     startGame()
-})
+} )

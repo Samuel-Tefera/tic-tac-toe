@@ -61,7 +61,6 @@ main{
     height: 25rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    box-shadow: 0 0 4px 4px  #8c84dd;
     row-gap: 2px;
     column-gap: 2px;
 }

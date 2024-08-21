@@ -28,28 +28,30 @@ A simple Tic Tac Toe game built using HTML, CSS, Javascript. This project allows
 To run this project locally, follow these steps:
 1. Clone repository:
 
-bash
+```bash
     git clone https://github.com/Samuel-Tefera/tic-tac-toe.git
+```
 
 2. Navigate to the project directory:
 
-bash
+```bash
     cd tic-tac-toe
+```
 
 3. Open index.html in your web browser.
 
 ## Screenshots
 
-![Scrrenshot 1](scrrenshots/Scrrenshot(1).png)
+![Screenshot 1](screenshots/Screenshot (1).png)
 *Game Board*
 
-![Scrrenshot 1](scrrenshots/Scrrenshot(2).png)
+![Screenshot 2](screenshots/Screenshot (2).png)
 *Player X Wins!*
 
-![Scrrenshot 1](scrrenshots/Scrrenshot(3).png)
+![Screenshot 3](screenshots/Screenshot (3).png)
 *player O Wins!*
 
-![Scrrenshot 1](scrrenshots/Scrrenshot(4).png)
+![Screenshot 4](screenshots/Screenshot (4).png)
 *Draw*
 
 ## Usage

@@ -8,7 +8,8 @@ const turnO = document.querySelector( '.turn-o' )
 const resultBoard = document.querySelector( '.result-board' );
 const resultMsg = resultBoard.querySelector( 'p' );
 const scoreXEL = document.querySelector( '.score-x' ).querySelector('span');
-const scoreOEl = document.querySelector( '.score-o' ).querySelector('span');
+const scoreOEl = document.querySelector( '.score-o' ).querySelector( 'span' );
+const playAgainBtn = document.querySelector('.btn')
 
 let scoreX = 0;
 let scoreO = 0;
@@ -17,10 +18,14 @@ let x_turn = true;
 let chance = 9;
 
 const gameBoardInit = ( values ) => {
-    scoreXEL.textContent = scoreX;
-    scoreOEl.textContent = scoreO;
+    chance = 9
     for ( let i = 0; i < values.length; i++ ){
-        values[i].classList.add('hidden')
+        turnBox.classList.remove( 'hidden' );
+        resultBoard.classList.add( 'disable' );
+        valueBoxs[ i ].classList.remove( 'dark-bg' );
+        values[ i ].textContent = i;
+        values[ i ].classList.remove( 'hold__value-box' );
+        values[ i ].classList.add( 'hidden' );
     }
 }
 
@@ -30,7 +35,7 @@ const gameEnd = ( values ) => {
     }
 }
 
-// Intialize a game => make a gameboard empty
+// Intialize a game => make a gameboard avilable
 gameBoardInit( values )
 
 // Manage which player turn
@@ -146,12 +151,14 @@ const handleResultMsg = () => {
         manageBoard( turnBox, resultBoard );
         resultMsg.textContent = 'Player X Win 🏆';
         scoreX++;
+        scoreXEL.textContent = scoreX;
         gameEnd( values );
     }
     else if ( result === 'o' ) {
         manageBoard( turnBox, resultBoard );
         resultMsg.textContent = 'Player O Win 🏆';
         scoreO++;
+        scoreOEl.textContent = scoreO;
         gameEnd( values );
     }
     else if ( result === 'draw' ) {
@@ -162,27 +169,37 @@ const handleResultMsg = () => {
 }
 
 const manageGame = (valueBox, value) => {
-    valueBox.classList.add( 'hold__value-box' )
+    valueBox.classList.add( 'hold__value-box' );
     value.classList.remove( 'hidden' );
     handleTurn()
     handleResultMsg()
 }
 
-valueBoxs.forEach( valueBox => {
-    valueBox.addEventListener( 'click', () => {
-        const value = valueBox.querySelector( '.value' )
-        if ( value.classList.contains( 'hidden' ) &&
-             !value.classList.contains('hold__value-box') ) {
-            if ( x_turn ) {
-                value.textContent = 'X';
-                manageGame(valueBox, value)
-                x_turn = false;
+const startGame = () => {
+    valueBoxs.forEach( valueBox => {
+        valueBox.addEventListener( 'click', () => {
+            const value = valueBox.querySelector( '.value' )
+            if ( value.classList.contains( 'hidden' ) &&
+                 !value.classList.contains('hold__value-box') ) {
+                if ( x_turn ) {
+                    value.textContent = 'X';
+                    manageGame(valueBox, value)
+                    x_turn = false;
+                }
+                else {
+                    value.textContent = 'O';
+                    manageGame(valueBox, value)
+                    x_turn = true;
+                }
             }
-            else {
-                value.textContent = 'O';
-                manageGame(valueBox, value)
-                x_turn = true;
-            }
-        }
-    })
-} )
+        })
+    } )
+}
+
+// Start a new game
+startGame()
+
+playAgainBtn.addEventListener( 'click', () => {
+    gameBoardInit( values );
+    startGame()
+})

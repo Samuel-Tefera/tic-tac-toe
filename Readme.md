@@ -1,4 +1,4 @@
-# Tic Tac Toe Game
+I'm# Tic Tac Toe Game
 
 A simple Tic Tac Toe game built using HTML, CSS, Javascript. This project allows two player to compete against each other in a classic game of Tic Tac Toe.
 
@@ -52,7 +52,7 @@ To run this project locally, follow these steps:
 *player O Wins!*
 
 ![Screenshot 4](screenshots/Screenshot4.png)
-*Draw*
+*Draw!*
 
 ## Usage
 

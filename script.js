@@ -9,6 +9,7 @@ const resultBoard = document.querySelector( '.result-board' );
 const resultMsg = resultBoard.querySelector( 'p' );
 const scoreXEL = document.querySelector( '.score-x' ).querySelector('span');
 const scoreOEl = document.querySelector( '.score-o' ).querySelector( 'span' );
+const playAgainBtn = document.querySelector('.btn')
 
 let scoreX = 0;
 let scoreO = 0;
@@ -160,7 +161,6 @@ const startGame = () => {
 
 // Start a new game
 startGame()
-
 // start a game after updating score
 playAgainBtn.addEventListener( 'click', () => {
     gameBoardInit( values );

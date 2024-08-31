@@ -1,4 +1,4 @@
-I'm# Tic Tac Toe Game
+# Tic Tac Toe Game
 
 A simple Tic Tac Toe game built using HTML, CSS, Javascript. This project allows two player to compete against each other in a classic game of Tic Tac Toe.
 
